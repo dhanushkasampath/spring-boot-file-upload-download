@@ -17,7 +17,6 @@ import java.util.UUID;
 public class Attachment {
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
     private String fileName;
     private String fileType;
@@ -27,7 +26,7 @@ public class Attachment {
     private byte[] data;
 
     public Attachment(String fileName, String fileType, byte[] data) {
-        this.id = String.valueOf(UUID.randomUUID());
+        this.id = String.valueOf(UUID.randomUUID()); //setting a new uuid each time when a save happens to db
         this.fileName = fileName;
         this.fileType = fileType;
         this.data = data;

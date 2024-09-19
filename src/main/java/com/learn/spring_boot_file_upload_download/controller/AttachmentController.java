@@ -39,10 +39,10 @@ public class AttachmentController {
     public ResponseEntity<Resource> downloadFile(@PathVariable String fileId) throws Exception {
         Attachment attachment = attachmentService.getAttachment(fileId);
         return ResponseEntity.ok()
-                .contentType(MediaType.parseMediaType(attachment.getFileType())) // content type is what ever the content type of the file itself
-                .header(HttpHeaders.CONTENT_DISPOSITION, // this means content will be downloaded
-                        "attachment; filename=\"" + attachment.getFileName() + "\"")
-                .body(new ByteArrayResource(attachment.getData())); //we return body as a  byte array
+            .contentType(MediaType.parseMediaType(attachment.getFileType())) // content type is what ever the content type of the file itself
+            .header(HttpHeaders.CONTENT_DISPOSITION, // this means content will be downloaded
+                    "attachment; filename=\"" + attachment.getFileName() + "\"")
+            .body(new ByteArrayResource(attachment.getData())); //we return body as a  byte array
     }
 }
 
